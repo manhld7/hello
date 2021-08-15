@@ -1,0 +1,11 @@
+node {
+	def commit_id;
+	stage('preparation') {
+		checkout scm
+		sh "git rev-parse --short > .git/commit-id"
+		commit_id = readFile('.git/commit-id').trim()
+	}
+	stage('test') {
+		
+	}
+}
