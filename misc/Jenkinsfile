@@ -9,7 +9,7 @@ node {
 		sh "echo testing"
 	}
 	stage('docker build/push') {
-		docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub') {
+		docker.withRegistry('https://registry.hub.docker.com/repository/docker/', 'dockerhub') {
 			def app = docker.build("manhld7/hello-demo:${commit_id}", '.').push()
 		}
 	}
